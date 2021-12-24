@@ -118,7 +118,9 @@ public class PersonWebUiConfig {
                 .addProp("email").asSinglelineText().also()
                 .addProp("active").asCheckbox().also()
                 // row 2
-                .addProp("desc").asMultilineText().also()
+                .addProp("name").asMultilineText().also()
+                .addProp("surname").asMultilineText().also()
+
                 // row 3
                 .addProp("employeeNo").asSinglelineText().also()
                 .addProp("title").asSinglelineText().also()
