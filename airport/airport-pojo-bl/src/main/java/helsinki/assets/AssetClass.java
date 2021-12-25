@@ -1,6 +1,7 @@
 package helsinki.assets;
 
 import ua.com.fielden.platform.entity.DynamicEntityKey;
+import helsinki.common.validators.NoSpacesValidator;
 import ua.com.fielden.platform.entity.ActivatableAbstractEntity;
 import ua.com.fielden.platform.entity.annotation.KeyType;
 import ua.com.fielden.platform.entity.annotation.KeyTitle;
@@ -46,7 +47,7 @@ public class AssetClass extends ActivatableAbstractEntity<DynamicEntityKey> {
     @MapTo
     @Title(value = "Name",desc="A unique asset class")
     @CompositeKeyMember(1)
-    @BeforeChange(@Handler(MaxLengthValidator.class))
+    @BeforeChange({@Handler(MaxLengthValidator.class),@Handler(NoSpacesValidator.class)})
     private String name;
     
     @Observable

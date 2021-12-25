@@ -19,7 +19,7 @@ import ua.com.fielden.platform.error.Result;
 import ua.com.fielden.platform.security.user.User;
 import ua.com.fielden.platform.test.ioc.UniversalConstantsForTesting;
 import ua.com.fielden.platform.utils.IUniversalConstants;
-
+import helsinki.common.validators.NoSpacesValidator;
 import helsinki.personnel.Person;
 import helsinki.personnel.PersonCo;
 import helsinki.test_config.AbstractDaoTestCase;
@@ -67,6 +67,25 @@ public class AssetClassTest extends AbstractDaoTestCase {
         //System.out.println(validationResult.getMessage());
         assertEquals("Value should not be longer than 50 characters.",validationResult.getMessage());
     }
+    
+    @Test
+    public void name_cannot_whitespaces() {
+        final var assetClass = co(AssetClass.class).new_().setName("Building").setDesc("Pro, build, car");
+        assetClass.setName("Name with spaces");
+        final MetaProperty<String> mpName= assetClass.getProperty("name");
+
+        assertFalse(mpName.isValid());
+        final Result validationResult = mpName.getFirstFailure();
+
+        assertEquals(NoSpacesValidator.ERR_SPACES,validationResult.getMessage());
+        assertEquals("Building", assetClass.getName());
+        assetClass.setName("Building1");
+        assertTrue(mpName.isValid());
+        assertEquals("Building1", assetClass.getName());
+
+
+    }
+    
     @Override
     public boolean saveDataPopulationScriptToFile() {
         return false;
@@ -75,7 +94,7 @@ public class AssetClassTest extends AbstractDaoTestCase {
     
     @Override
     public boolean useSavedDataPopulationScript() {
-        return false;
+        return true;
     }
 
     /**
