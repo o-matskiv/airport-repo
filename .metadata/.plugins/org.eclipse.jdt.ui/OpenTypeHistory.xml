@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-    <typeInfo handle="=airport-dao/src\/test\/java&lt;helsinki.example{PersonnelTest.java[PersonnelTest" modifiers="1" timestamp="1640353363000"/>
-    <typeInfo handle="=airport-web-ui/src\/main\/java&lt;helsinki.config.personnel{PersonWebUiConfig.java[PersonWebUiConfig" modifiers="1" timestamp="1640353363000"/>
-    <typeInfo handle="=airport-web-server/src\/main\/java&lt;helsinki.webapp{Start.java[Start" modifiers="1" timestamp="1640294580000"/>
+    <typeInfo handle="=airport-dao/src\/test\/java&lt;helsinki.example{PersonnelTest.java[PersonnelTest" modifiers="1" timestamp="1640430299000"/>
+    <typeInfo handle="=airport-web-ui/src\/main\/java&lt;helsinki.config.personnel{PersonWebUiConfig.java[PersonWebUiConfig" modifiers="1" timestamp="1640430299000"/>
+    <typeInfo handle="=airport-web-server/src\/main\/java&lt;helsinki.webapp{StartOverHttp.java[StartOverHttp" modifiers="1" timestamp="1640294580000"/>
+    <typeInfo handle="=airport-web-server/src\/main\/java&lt;helsinki.webapp{Start.java[Start" modifiers="1" timestamp="1640357207000"/>
 </typeInfoHistroy>
