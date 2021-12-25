@@ -11,9 +11,11 @@ import java.math.BigDecimal;
 import org.junit.Test;
 
 import ua.com.fielden.platform.dao.QueryExecutionModel;
+import ua.com.fielden.platform.entity.meta.MetaProperty;
 import ua.com.fielden.platform.entity.query.fluent.fetch;
 import ua.com.fielden.platform.entity.query.model.EntityResultQueryModel;
 import ua.com.fielden.platform.entity.query.model.OrderingModel;
+import ua.com.fielden.platform.error.Result;
 import ua.com.fielden.platform.security.user.User;
 import ua.com.fielden.platform.test.ioc.UniversalConstantsForTesting;
 import ua.com.fielden.platform.utils.IUniversalConstants;
@@ -42,22 +44,35 @@ public class AssetClassTest extends AbstractDaoTestCase {
     	assertTrue(savedAssetClass.isActive());
     	assertEquals("Building", savedAssetClass.getName());
     }
-  
-
+    
+    @Test
+    public void can_access() {
+        co(AssetClass.class).save(co(AssetClass.class).new_().setName("Building").setDesc("Pro, build, car"));
+        final var assetClass = co(AssetClass.class).findByKeyAndFetch(AssetClassCo.FETCH_PROVIDER.fetchModel(), "Building");
+        assertTrue(assetClass.isActive());
+    }
+    @Test
+    public void name_cannot_50() {
+        final var longname = "Building".repeat(50);
+        final var assetClass = co(AssetClass.class).new_().setName(longname).setDesc("Pro, build, car");
+        final MetaProperty<String> mpName= assetClass.getProperty("name");
+        assertNull(mpName.getValue());
+        assertNull(assetClass.getName());
+        assertFalse(mpName.isValid());
+        
+        final Result validationResult = mpName.getFirstFailure();
+        //validationResult.isSuccessful();
+        assertNotNull(validationResult);
+        assertFalse(validationResult.isSuccessful());
+        //System.out.println(validationResult.getMessage());
+        assertEquals("Value should not be longer than 50 characters.",validationResult.getMessage());
+    }
     @Override
     public boolean saveDataPopulationScriptToFile() {
         return false;
     }
 
-    /**
-     * If the test data was populated and saved as a script file (hinted in method {@link #saveDataPopulationScriptToFile()} above),
-     * then this method can be changed to return <code>true</code> in order to avoid execution of the data population logic and simply execute the saved script.
-     * This makes the population of the test data a lot faster.
-     * It is very convenient when there is a need to run the same test case multiple times interactively.
-     * <p>
-     * However, this method should never return <code>true</code> when running multiple test cases.
-     * Therefore, it is important to change this method to return <code>false</code> before committing changes into your VCS such as Git.
-     */
+    
     @Override
     public boolean useSavedDataPopulationScript() {
         return false;
