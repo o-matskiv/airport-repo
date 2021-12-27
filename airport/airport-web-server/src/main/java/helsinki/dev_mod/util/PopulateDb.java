@@ -12,6 +12,7 @@ import org.hibernate.dialect.H2Dialect;
 import static org.apache.logging.log4j.LogManager.getLogger;
 import org.apache.logging.log4j.Logger;
 
+import helsinki.assets.AssetClass;
 import helsinki.config.ApplicationDomain;
 import helsinki.personnel.Person;
 
@@ -78,7 +79,7 @@ public class PopulateDb extends DomainDrivenDataPopulation {
         
         setupUser(User.system_users.SU, "helsinki");
         setupPerson(User.system_users.SU, "helsinki", "Super","User");
-
+        save(new_(AssetClass.class).setName("Buildings").setDesc("All buildings and other structures."));
         LOGGER.info("Completed database creation and population.");
 	}
 

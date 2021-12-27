@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-    <typeInfo handle="=airport-dao/src\/test\/java&lt;helsinki.example{PersonnelTest.java[PersonnelTest" modifiers="1" timestamp="1640430299000"/>
-    <typeInfo handle="=airport-web-ui/src\/main\/java&lt;helsinki.config.personnel{PersonWebUiConfig.java[PersonWebUiConfig" modifiers="1" timestamp="1640430299000"/>
-    <typeInfo handle="=airport-web-server/src\/main\/java&lt;helsinki.webapp{StartOverHttp.java[StartOverHttp" modifiers="1" timestamp="1640294580000"/>
-    <typeInfo handle="=airport-web-server/src\/main\/java&lt;helsinki.webapp{Start.java[Start" modifiers="1" timestamp="1640357207000"/>
+    <typeInfo handle="=airport-pojo-bl/src\/main\/java&lt;helsinki.config{Modules.java[Modules" modifiers="16385" timestamp="1640294580000"/>
+    <typeInfo handle="=airport-dao/src\/main\/java&lt;helsinki.assets{AssetClassDao.java[AssetClassDao" modifiers="1" timestamp="1640458262000"/>
+    <typeInfo handle="=airport-pojo-bl/\/Users\/admin\/.m2\/repository\/fielden\/platform-pojo-bl\/1.4.6-SNAPSHOT\/platform-pojo-bl-1.4.6-SNAPSHOT.jar&lt;ua.com.fielden.platform.entity.meta.impl(AbstractBeforeChangeEventHandler.class[AbstractBeforeChangeEventHandler" modifiers="1057" timestamp="1640294868000"/>
 </typeInfoHistroy>

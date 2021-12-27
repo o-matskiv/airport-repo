@@ -2,4 +2,14 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="ua.com.fielden.platform.entity.annotation.Readonly"/>
     <fullyQualifiedTypeName name="ua.com.fielden.platform.entity.annotation.Calculated"/>
+    <fullyQualifiedTypeName name="ua.com.fielden.platform.entity.annotation.EntityTitle"/>
+    <fullyQualifiedTypeName name="ua.com.fielden.platform.entity.annotation.IsProperty"/>
+    <fullyQualifiedTypeName name="ua.com.fielden.platform.entity.annotation.MapTo"/>
+    <fullyQualifiedTypeName name="ua.com.fielden.platform.entity.annotation.Title"/>
+    <fullyQualifiedTypeName name="ua.com.fielden.platform.entity.annotation.CompositeKeyMember"/>
+    <fullyQualifiedTypeName name="ua.com.fielden.platform.entity.annotation.Observable"/>
+    <fullyQualifiedTypeName name="ua.com.fielden.platform.entity.annotation.mutator.BeforeChange"/>
+    <fullyQualifiedTypeName name="ua.com.fielden.platform.entity.validation.MaxLengthValidator"/>
+    <fullyQualifiedTypeName name="ua.com.fielden.platform.entity.annotation.mutator.Handler"/>
+    <fullyQualifiedTypeName name="helsinki.common.validators.NoSpacesValidator"/>
 </qualifiedTypeNameHistroy>
