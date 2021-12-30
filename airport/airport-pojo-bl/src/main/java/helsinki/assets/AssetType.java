@@ -26,8 +26,8 @@ import ua.com.fielden.platform.reflection.TitlesDescsGetter;
 import ua.com.fielden.platform.utils.Pair;
 import ua.com.fielden.platform.entity.validation.MaxLengthValidator;
 import ua.com.fielden.platform.entity.annotation.Required;
-
-
+import helsinki.security.tokens.persistent.AssetType_CanModify_assetClass_Token;
+import ua.com.fielden.platform.security.Authorise;
 
 /**
  * Master entity object.
@@ -87,6 +87,7 @@ public class AssetType extends ActivatableAbstractEntity<DynamicEntityKey> {
     }
 
      @Observable
+     @Authorise(AssetType_CanModify_assetClass_Token.class)
     public AssetType setAssetClass(final AssetClass assetClass) {
         this.assetClass = assetClass;
         return this;

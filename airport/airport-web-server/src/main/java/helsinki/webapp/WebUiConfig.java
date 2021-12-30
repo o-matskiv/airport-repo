@@ -21,7 +21,8 @@ import ua.com.fielden.platform.web.resources.webui.AbstractWebUiConfig;
 import ua.com.fielden.platform.web.resources.webui.UserRoleWebUiConfig;
 import ua.com.fielden.platform.web.resources.webui.UserWebUiConfig;
 import ua.com.fielden.platform.web.resources.webui.SecurityMatrixWebUiConfig;
-
+import helsinki.assets.AssetType;
+import helsinki.webapp.config.assets.AssetTypeWebUiConfig;
 /**
  * App-specific {@link IWebApp} implementation.
  *
@@ -84,7 +85,7 @@ public class WebUiConfig extends AbstractWebUiConfig {
         final SecurityMatrixWebUiConfig securityConfig = SecurityMatrixWebUiConfig.register(injector(), configApp());
         
         final AssetClassWebUiConfig assetClassWebUiConfig = AssetClassWebUiConfig.register(injector(), builder);
-        
+        final AssetTypeWebUiConfig assetTypeWebUiConfig = AssetTypeWebUiConfig.register(injector(), builder);
         
         // Add user-rated masters and centres to the configuration 
         configApp()
@@ -104,8 +105,13 @@ public class WebUiConfig extends AbstractWebUiConfig {
             .bgColor(Modules.USERS_AND_PERSONNEL.bgColour)
             .captionBgColor(Modules.USERS_AND_PERSONNEL.captionBgColour)
             .menu()
+            
                 .addMenuItem(mkMenuItemTitle(Person.class)).description(mkMenuItemDesc(Person.class)).centre(personWebUiConfig.centre).done()
                 .addMenuItem(mkMenuItemTitle(AssetClass.class)).description(mkMenuItemDesc(AssetClass.class)).centre(assetClassWebUiConfig.centre).done()
+                .addMenuItem("Assets").description("Functionality assets.")
+                .addMenuItem(mkMenuItemTitle(AssetClass.class)).description(mkMenuItemDesc(AssetClass.class)).centre(assetClassWebUiConfig.centre).done()
+                .addMenuItem(mkMenuItemTitle(AssetType.class)).description(mkMenuItemDesc(AssetType.class)).centre(assetTypeWebUiConfig.centre).done()
+            .done() 
                 .addMenuItem("System Users").description("Functionality for managing system users, athorisation, etc.")
                     .addMenuItem("Users").description("User centre").centre(userWebUiConfig.centre).done()
                     .addMenuItem("User Roles").description("User roles centre").centre(userRoleWebUiConfig.centre).done()

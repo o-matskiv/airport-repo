@@ -23,30 +23,33 @@ import java.util.Collection;
  @EntityType(AssetType.class)
  public class AssetTypeDao extends CommonEntityDao<AssetType> implements AssetTypeCo {
 
-      @Inject
+     @Inject
      public AssetTypeDao(final IFilter filter) {
          super(filter);
      }
 
-      @Override
+     @Override
      public AssetType new_() {
          return super.new_().setActive(true);
      }
-
-      @Override
+//check
+     @Override
      @SessionRequired
+     @Authorise(AssetType_CanSave_Token.class)
      public AssetType save(AssetType entity) {
          return super.save(entity);
      }
 
-      @Override
+     @Override
      @SessionRequired
+     @Authorise(AssetType_CanDelete_Token.class)
      public int batchDelete(final Collection<Long> entitiesIds) {
          return defaultBatchDelete(entitiesIds);
      }
 
-      @Override
+     @Override
      @SessionRequired
+     @Authorise(AssetType_CanDelete_Token.class)
      public int batchDelete(final List<AssetType> entities) {
          return defaultBatchDelete(entities);
      }
